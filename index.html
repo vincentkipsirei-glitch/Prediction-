@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteFix Tips Daily | Premium Football Predictions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff6b00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="EliteFix Tips">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <style>
+        :root {
+            --primary-color: #0c0c0c;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ff6b00;
+            --accent-dark: #e55a00;
+            --highlight-color: #ffd700;
+            --text-color: #ffffff;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2d1b69 100%);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(12, 12, 12, 0.85), rgba(45, 27, 105, 0.85)), 
+                        url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 10%, rgba(12, 12, 12, 0.9) 70%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--highlight-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+            margin-bottom: 10px;
+        }
+        
+        .brand-tagline {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: var(--highlight-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        .card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 107, 0, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 107, 0, 0.4);
+        }
+        
+        .card-header {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-dark));
+            border-bottom: none;
+            font-weight: bold;
+            border-radius: 12px 12px 0 0 !important;
+            padding: 15px 20px;
+        }
+        
+        .table-dark {
+            background-color: transparent;
+        }
+        
+        .table-dark th {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-dark));
+            border: none;
+            padding: 15px;
+        }
+        
+        .table-dark td {
+            border-color: rgba(255, 255, 255, 0.1);
+            padding: 12px 15px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-dark));
+            border: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 107, 0, 0.4);
+            background: linear-gradient(45deg, var(--accent-dark), var(--accent-color));
+        }
+        
+        .price-tag {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-dark));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+            box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
+        }
+        
+        .guarantee-badge {
+            background: linear-gradient(45deg, var(--success-color), #20c997);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        
+        .today-tip {
+            background: linear-gradient(45deg, rgba(255, 107, 0, 0.1), rgba(255, 215, 0, 0.1));
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .today-tip h4 {
+            color: var(--highlight-color);
+            margin-bottom: 15px;
+        }
+        
+        .tip-details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .tip-item {
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .tip-label {
+            font-weight: bold;
+            color: var(--highlight-color);
+        }
+        
+        .footer {
+            background-color: var(--secondary-color);
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .login-modal {
+            color: #333;
+        }
+        
+        .admin-panel {
+            background: rgba(26, 26, 26, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .vip-access {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        .admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-toggle:hover {
+            transform: scale(1.1);
+            background: var(--accent-dark);
+        }
+        
+        .password-modal {
+            color: #333;
+        }
+        
+        .match-result {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .won {
+            background: var(--success-color);
+        }
+        
+        .lost {
+            background: var(--danger-color);
+        }
+        
+        .glowing-text {
+            text-shadow: 0 0 10px rgba(255, 107, 0, 0.7);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--highlight-color);
+        }
+        
+        .vip-package {
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .vip-package:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+        }
+        
+        .vip-package-header {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-dark));
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status-won {
+            background: var(--success-color);
+        }
+        
+        .status-lost {
+            background: var(--danger-color);
+        }
+        
+        .status-pending {
+            background: #6c757d;
+        }
+        
+        /* Login Page Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .login-card {
+            background: rgba(26, 26, 26, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+        }
+        
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.25);
+            color: white;
+        }
+        
+        .btn-vip {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-dark));
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+            margin-top: 10px;
+        }
+        
+        .btn-vip:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 107, 0, 0.4);
+            background: linear-gradient(45deg, var(--accent-dark), var(--accent-color));
+        }
+        
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+        }
+        
+        .form-switch .form-check-input:checked {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .divider-text {
+            padding: 0 15px;
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+        
+        .payment-options {
+            background: rgba(255, 107, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .payment-options h6 {
+            color: var(--highlight-color);
+            margin-bottom: 15px;
+        }
+        
+        .status-active {
+            background: var(--success-color);
+        }
+        
+        .status-pending {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .status-expired {
+            background: #dc3545;
+        }
+        
+        .vip-features {
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            background: rgba(255, 107, 0, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--accent-color);
+        }
+        
+        .back-home {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .back-home a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .back-home a:hover {
+            text-decoration: underline;
+        }
+        
+        .alert-vip {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-left: 4px solid var(--highlight-color);
+            color: #ffd700;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Admin Panel Styles */
+        .admin-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .admin-section-title {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .admin-table th, .admin-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .admin-table th {
+            background: rgba(255, 107, 0, 0.2);
+            color: var(--accent-color);
+        }
+        
+        .admin-table input, .admin-table select, .admin-table textarea {
+            width: 100%;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: white;
+        }
+        
+        .admin-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        
+        .admin-btn:hover {
+            background: var(--accent-dark);
+        }
+        
+        .admin-btn-danger {
+            background: var(--danger-color);
+        }
+        
+        .admin-btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .add-btn {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .add-btn:hover {
+            background: #218838;
+        }
+        
+        .combo-matches-list {
+            max-height: 150px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .combo-match-item {
+            padding: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* PWA Install Button */
+        .install-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .install-btn:hover {
+            transform: scale(1.1);
+            background: var(--accent-dark);
+        }
+        
+        .install-btn.hidden {
+            display: none;
+        }
+        
+        /* Install Prompt Modal */
+        .install-modal {
+            color: #333;
+        }
+        
+        .install-modal .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .install-modal .modal-header {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-dark));
+            color: white;
+            border-bottom: none;
+        }
+        
+        .install-modal .modal-body {
+            padding: 25px;
+        }
+        
+        .install-modal .modal-footer {
+            border-top: none;
+            padding: 0 25px 25px;
+        }
+        
+        .install-features {
+            margin: 20px 0;
+        }
+        
+        .install-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .install-feature i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .social-icon.facebook {
+            background: #3b5998;
+        }
+        
+        .social-icon.whatsapp {
+            background: #25D366;
+        }
+        
+        .social-icon.whatsapp-group {
+            background: #128C7E;
+        }
+        
+        /* Assistance Section */
+        .assistance-section {
+            background: rgba(255, 107, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .assistance-section h4 {
+            color: var(--highlight-color);
+            margin-bottom: 15px;
+        }
+        
+        .assistance-email {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 10px 0;
+        }
+        
+        /* Password Visibility Toggle */
+        .password-container {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .toggle-password:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Enhanced Form Controls */
+        .form-control-light {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .form-control-light:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.25);
+            color: white;
+        }
+        
+        .password-strength {
+            height: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .strength-weak {
+            background: var(--danger-color);
+        }
+        
+        .strength-medium {
+            background: #ffc107;
+        }
+        
+        .strength-strong {
+            background: var(--success-color);
+        }
+        
+        .password-requirements {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+        }
+        
+        .requirement-met {
+            color: var(--success-color);
+        }
+        
+        .requirement-not-met {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Payment Method Styles */
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--accent-color);
+            background: rgba(255, 107, 0, 0.05);
+        }
+        
+        .payment-method.selected {
+            border-color: var(--accent-color);
+            background: rgba(255, 107, 0, 0.1);
+        }
+        
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .payment-info {
+            flex: 1;
+        }
+        
+        .payment-info h6 {
+            margin-bottom: 5px;
+            color: var(--highlight-color);
+        }
+        
+        .payment-info p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-crown me-2" style="color: var(--highlight-color);"></i>EliteFix Tips Daily
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#today">Today's Tip</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#vip-correct">VIP Correct Score</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#combo">Combo Ticket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="fas fa-lock me-1"></i>VIP Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container hero-content">
+            <h1 class="brand-name">EliteFix Tips Daily</h1>
+            <p class="brand-tagline">Premium Football Predictions with Guaranteed Wins</p>
+            <p class="lead">Expert fixed match tips and winning strategies from worldwide sources. Focus on European leagues with 100% accuracy.</p>
+            <a href="#vip-correct" class="btn btn-primary btn-lg mt-3 pulse">Join VIP Now <i class="fas fa-arrow-right ms-2"></i></a>
+            
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61552198341500" class="social-icon facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://whatsapp.com/channel/0029VaCUTzsC6ZvaycMk1H1V" class="social-icon whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://chat.whatsapp.com/IUpWvCXYN9mBf71cREtyPa?mode=ems_copy_t" class="social-icon whatsapp-group" target="_blank">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Today's Tip Section -->
+    <section class="py-5" id="today">
+        <div class="container">
+            <h2 class="section-title">Today's Premium Tip</h2>
+            
+            <div class="today-tip">
+                <h4><i class="fas fa-star me-2" style="color: var(--highlight-color);"></i>Match of the Day</h4>
+                <div class="tip-details">
+                    <div class="tip-item">
+                        <span class="tip-label">Match:</span> Leopards – Bandari
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-label">Tip:</span> <strong class="glowing-text">X</strong>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-label">Odd:</span> <strong>3.00</strong>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-label">Result:</span> ?:?
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <span class="guarantee-badge"><i class="fas fa-check-circle me-1"></i> 95% Confidence Rate</span>
+                </div>
+            </div>
+            
+            <!-- Previous Premium Tips History -->
+            <div class="card mt-4">
+                <div class="card-header text-center">
+                    <h5 class="mb-0"><i class="fas fa-history me-2"></i>Previous Premium Tips History</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Match</th>
+                                    <th>Tip</th>
+                                    <th>Odd</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody id="premium-tips-history">
+                                <!-- Previous premium tips will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-chart-line fa-3x mb-3" style="color: var(--accent-color);"></i>
+                            <h5 class="card-title">Analytical Approach</h5>
+                            <p class="card-text">Our tips are based on deep statistical analysis, team form, and insider information.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-shield-alt fa-3x mb-3" style="color: var(--accent-color);"></i>
+                            <h5 class="card-title">Verified Sources</h5>
+                            <p class="card-text">We work with trusted sources worldwide to provide accurate fixed match information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Correct Score Section -->
+    <section class="py-5" id="vip-correct">
+        <div class="container">
+            <h2 class="section-title">VIP Correct Score Predictions</h2>
+            
+            <div class="vip-access">
+                <h4><i class="fas fa-crown me-2"></i>VIP CORRECT SCORE - 2 GAMES DAILY</h4>
+                <p class="mb-0">High odds from 100 to 500+ with guaranteed accuracy</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="vip-package">
+                        <div class="vip-package-header">
+                            <h5 class="mb-0">Today's VIP Correct Score</h5>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th>Match</th>
+                                        <th>Correct Score</th>
+                                        <th>Odd</th>
+                                        <th>Result</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vip-correct-today">
+                                    <!-- VIP Correct Score today will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h6>Pricing:</h6>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <p class="mb-1">Daily: <span class="price-tag">100£</span></p>
+                                </div>
+                                <div>
+                                    <p class="mb-1">Monthly: <span class="price-tag">500£</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-3">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                Subscribe Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h5 class="mb-0"><i class="fas fa-trophy me-2"></i>VIP Correct Score History</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Match</th>
+                                            <th>Score</th>
+                                            <th>Odd</th>
+                                            <th>Result</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="vip-correct-history">
+                                        <!-- VIP Correct Score history will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combo Ticket Section -->
+    <section class="py-5" id="combo">
+        <div class="container">
+            <h2 class="section-title">Combo Ticket Predictions</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h5 class="mb-0"><i class="fas fa-layer-group me-2"></i>Today's Combo Ticket</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="combo-ticket-today">
+                                <!-- Today's combo ticket will be loaded here -->
+                            </div>
+                            <div class="mt-3">
+                                <h6>Pricing:</h6>
+                                <p class="mb-1">Daily: <span class="price-tag">50£</span></p>
+                                <p class="mb-1">Weekly: <span class="price-tag">200£</span></p>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    Get Combo Ticket
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Combo Ticket History</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Matches</th>
+                                            <th>Odd</th>
+                                            <th>Result</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="combo-ticket-history">
+                                        <!-- Combo ticket history will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our VIP Members Say</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "I've been using EliteFix for 3 months now and my betting account has grown by 500%. Their correct score tips are incredible!"
+                        </div>
+                        <div class="testimonial-author">- James K., UK</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "The accuracy of their predictions is unmatched. I've tried other services but EliteFix is the real deal. Worth every penny!"
+                        </div>
+                        <div class="testimonial-author">- Maria S., Spain</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "As a professional bettor, I rely on accurate information. EliteFix provides the most reliable fixed match tips I've ever seen."
+                        </div>
+                        <div class="testimonial-author">- Robert L., Germany</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assistance Section -->
+    <section class="assistance-section">
+        <div class="container">
+            <h4><i class="fas fa-headset me-2"></i>Need Assistance?</h4>
+            <p>Our support team is available 24/7 to help with any questions or payment issues.</p>
+            <p class="assistance-email"><i class="fas fa-envelope me-2"></i>support@elitefixtips.com</p>
+            <p>We respond within minutes to ensure you never miss a winning opportunity.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>EliteFix Tips Daily</h5>
+                    <p>Premium football predictions with guaranteed accuracy. Trusted by thousands of bettors worldwide.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white-50">Home</a></li>
+                        <li><a href="#today" class="text-white-50">Today's Tip</a></li>
+                        <li><a href="#vip-correct" class="text-white-50">VIP Correct Score</a></li>
+                        <li><a href="#combo" class="text-white-50">Combo Ticket</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect</h5>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61552198341500" class="social-icon facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029VaCUTzsC6ZvaycMk1H1V" class="social-icon whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 EliteFix Tips Daily. All rights reserved.</p>
+                <p class="mb-0 text-white-50">For entertainment purposes only. Please gamble responsibly.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade login-modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">
+                        <i class="fas fa-crown me-2" style="color: var(--highlight-color);"></i>VIP Member Login
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert-vip">
+                        <i class="fas fa-info-circle me-2"></i>Access premium predictions and winning strategies
+                    </div>
+                    
+                    <div class="tabs">
+                        <div class="tab active" data-tab="login">Login</div>
+                        <div class="tab" data-tab="register">Register</div>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <div class="tab-content active" id="login-tab">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="loginUsername" class="form-label">Username</label>
+                                <input type="text" class="form-control-light" id="loginUsername" placeholder="Enter your username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Password</label>
+                                <div class="password-container">
+                                    <input type="password" class="form-control-light" id="loginPassword" placeholder="Enter your password" required>
+                                    <button type="button" class="toggle-password" id="toggleLoginPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="password-strength-bar"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn-vip">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login to VIP Area
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Registration Form -->
+                    <div class="tab-content" id="register-tab">
+                        <form id="registerForm">
+                            <div class="mb-3">
+                                <label for="regUsername" class="form-label">Username</label>
+                                <input type="text" class="form-control-light" id="regUsername" placeholder="Choose a username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="regEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control-light" id="regEmail" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="regPassword" class="form-label">Password</label>
+                                <div class="password-container">
+                                    <input type="password" class="form-control-light" id="regPassword" placeholder="Create a password" required>
+                                    <button type="button" class="toggle-password" id="toggleRegPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="password-strength-bar" id="regPasswordStrength"></div>
+                                </div>
+                                <div class="password-requirements">
+                                    <div id="lengthReq" class="requirement-not-met">At least 8 characters</div>
+                                    <div id="upperReq" class="requirement-not-met">One uppercase letter</div>
+                                    <div id="lowerReq" class="requirement-not-met">One lowercase letter</div>
+                                    <div id="numberReq" class="requirement-not-met">One number</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <div class="password-container">
+                                    <input type="password" class="form-control-light" id="confirmPassword" placeholder="Confirm your password" required>
+                                    <button type="button" class="toggle-password" id="toggleConfirmPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div id="passwordMatch" class="password-requirements"></div>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a></label>
+                            </div>
+                            <button type="submit" class="btn-vip">
+                                <i class="fas fa-user-plus me-2"></i>Create VIP Account
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="divider">
+                        <span class="divider-text">Payment Methods</span>
+                    </div>
+                    
+                    <div class="payment-options">
+                        <h6>Secure Payment Options</h6>
+                        
+                        <div class="payment-method" data-method="card">
+                            <div class="payment-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="payment-info">
+                                <h6>Credit/Debit Card</h6>
+                                <p>Visa, Mastercard, American Express</p>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method" data-method="paypal">
+                            <div class="payment-icon">
+                                <i class="fab fa-paypal"></i>
+                            </div>
+                            <div class="payment-info">
+                                <h6>PayPal</h6>
+                                <p>Secure online payments</p>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method" data-method="crypto">
+                            <div class="payment-icon">
+                                <i class="fab fa-bitcoin"></i>
+                            </div>
+                            <div class="payment-info">
+                                <h6>Cryptocurrency</h6>
+                                <p>Bitcoin, Ethereum, USDT</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="back-home">
+                        <a href="#home"><i class="fas fa-arrow-left me-1"></i> Back to Homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms and Conditions Modal -->
+    <div class="modal fade login-modal" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Acceptance of Terms</h6>
+                    <p>By accessing and using EliteFix Tips Daily, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                    
+                    <h6>2. Use License</h6>
+                    <p>Permission is granted to temporarily access the predictions and information on EliteFix Tips Daily for personal, non-commercial transitory viewing only.</p>
+                    
+                    <h6>3. Disclaimer</h6>
+                    <p>The predictions on this site are for informational purposes only. We do not guarantee winnings and are not responsible for any losses incurred.</p>
+                    
+                    <h6>4. Limitations</h6>
+                    <p>In no event shall EliteFix Tips Daily or its suppliers be liable for any damages arising out of the use or inability to use the predictions on this website.</p>
+                    
+                    <h6>5. Payments and Refunds</h6>
+                    <p>All payments for VIP services are non-refundable. We reserve the right to change pricing at any time.</p>
+                    
+                    <h6>6. Account Responsibility</h6>
+                    <p>You are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Install Button -->
+    <button id="installButton" class="install-btn hidden">
+        <i class="fas fa-download"></i>
+    </button>
+
+    <!-- Admin Toggle Button -->
+    <button id="adminToggle" class="admin-toggle">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <h3 class="text-center mb-4" style="color: var(--accent-color);">
+            <i class="fas fa-tools me-2"></i>Admin Panel
+        </h3>
+        
+        <div class="tabs mb-4">
+            <div class="tab active" data-admin-tab="premium">Premium Tips</div>
+            <div class="tab" data-admin-tab="vip-correct">VIP Correct Score</div>
+            <div class="tab" data-admin-tab="combo">Combo Ticket</div>
+            <div class="tab" data-admin-tab="users">Users</div>
+        </div>
+        
+        <!-- Premium Tips Admin -->
+        <div class="admin-section tab-content active" id="admin-premium">
+            <h4 class="admin-section-title">Premium Tips Management</h4>
+            
+            <div class="mb-3">
+                <button class="add-btn" id="addPremiumTip">
+                    <i class="fas fa-plus me-2"></i>Add New Premium Tip
+                </button>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Match</th>
+                            <th>Tip</th>
+                            <th>Odd</th>
+                            <th>Result</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-premium-tips">
+                        <!-- Premium tips admin rows will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- VIP Correct Score Admin -->
+        <div class="admin-section tab-content" id="admin-vip-correct">
+            <h4 class="admin-section-title">VIP Correct Score Management</h4>
+            
+            <div class="mb-3">
+                <button class="add-btn" id="addVipCorrect">
+                    <i class="fas fa-plus me-2"></i>Add New VIP Correct Score
+                </button>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Match</th>
+                            <th>Correct Score</th>
+                            <th>Odd</th>
+                            <th>Result</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-vip-correct-tips">
+                        <!-- VIP correct score admin rows will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Combo Ticket Admin -->
+        <div class="admin-section tab-content" id="admin-combo">
+            <h4 class="admin-section-title">Combo Ticket Management</h4>
+            
+            <div class="mb-3">
+                <button class="add-btn" id="addComboTicket">
+                    <i class="fas fa-plus me-2"></i>Add New Combo Ticket
+                </button>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Matches</th>
+                            <th>Odd</th>
+                            <th>Result</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-combo-tickets">
+                        <!-- Combo ticket admin rows will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Users Admin -->
+        <div class="admin-section tab-content" id="admin-users">
+            <h4 class="admin-section-title">User Management</h4>
+            
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Subscription</th>
+                            <th>Status</th>
+                            <th>Join Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-users-list">
+                        <!-- Users admin rows will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <button id="closeAdminPanel" class="btn btn-primary">
+                <i class="fas fa-times me-2"></i>Close Admin Panel
+            </button>
+        </div>
+    </div>
+
+    <!-- Install Prompt Modal -->
+    <div class="modal fade install-modal" id="installModal" tabindex="-1" aria-labelledby="installModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="installModalLabel">
+                        <i class="fas fa-mobile-alt me-2"></i>Install EliteFix Tips App
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Install our app for quick access to premium predictions and exclusive features:</p>
+                    
+                    <div class="install-features">
+                        <div class="install-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Fast loading and instant updates</span>
+                        </div>
+                        <div class="install-feature">
+                            <i class="fas fa-bell"></i>
+                            <span>Push notifications for new tips</span>
+                        </div>
+                        <div class="install-feature">
+                            <i class="fas fa-desktop"></i>
+                            <span>Works offline once loaded</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Not Now</button>
+                    <button type="button" class="btn btn-primary" id="installApp">Install App</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Password visibility toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle password visibility for login form
+            const toggleLoginPassword = document.getElementById('toggleLoginPassword');
+            const loginPassword = document.getElementById('loginPassword');
+            
+            if (toggleLoginPassword && loginPassword) {
+                toggleLoginPassword.addEventListener('click', function() {
+                    const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                    loginPassword.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+            
+            // Toggle password visibility for registration form
+            const toggleRegPassword = document.getElementById('toggleRegPassword');
+            const regPassword = document.getElementById('regPassword');
+            
+            if (toggleRegPassword && regPassword) {
+                toggleRegPassword.addEventListener('click', function() {
+                    const type = regPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                    regPassword.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+            
+            // Toggle password visibility for confirm password
+            const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+            const confirmPassword = document.getElementById('confirmPassword');
+            
+            if (toggleConfirmPassword && confirmPassword) {
+                toggleConfirmPassword.addEventListener('click', function() {
+                    const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                    confirmPassword.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+            
+            // Password strength indicator for registration
+            if (regPassword) {
+                regPassword.addEventListener('input', function() {
+                    checkPasswordStrength(this.value);
+                });
+            }
+            
+            // Password match checker
+            if (confirmPassword && regPassword) {
+                confirmPassword.addEventListener('input', function() {
+                    checkPasswordMatch(regPassword.value, this.value);
+                });
+            }
+            
+            // Tab switching
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(`${tabName}-tab`).classList.add('active');
+                });
+            });
+            
+            // Admin tab switching
+            const adminTabs = document.querySelectorAll('[data-admin-tab]');
+            adminTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-admin-tab');
+                    
+                    // Remove active class from all admin tabs and contents
+                    document.querySelectorAll('[data-admin-tab]').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.admin-section.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(`admin-${tabName}`).classList.add('active');
+                });
+            });
+            
+            // Admin panel toggle
+            const adminToggle = document.getElementById('adminToggle');
+            const adminPanel = document.getElementById('adminPanel');
+            
+            if (adminToggle && adminPanel) {
+                adminToggle.addEventListener('click', function() {
+                    if (adminPanel.style.display === 'none') {
+                        adminPanel.style.display = 'block';
+                    } else {
+                        adminPanel.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Close admin panel
+            const closeAdminPanel = document.getElementById('closeAdminPanel');
+            if (closeAdminPanel && adminPanel) {
+                closeAdminPanel.addEventListener('click', function() {
+                    adminPanel.style.display = 'none';
+                });
+            }
+            
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove selected class from all methods
+                    paymentMethods.forEach(m => m.classList.remove('selected'));
+                    
+                    // Add selected class to clicked method
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Form submissions
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Login functionality would be implemented here. This is a demo.');
+                });
+            }
+            
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm) {
+                registerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Registration functionality would be implemented here. This is a demo.');
+                });
+            }
+            
+            // Load initial data
+            loadPremiumTipsHistory();
+            loadVipCorrectToday();
+            loadVipCorrectHistory();
+            loadComboTicketToday();
+            loadComboTicketHistory();
+            
+            // Initialize admin tables
+            loadAdminPremiumTips();
+            loadAdminVipCorrectTips();
+            loadAdminComboTickets();
+            loadAdminUsers();
+            
+            // PWA Install functionality
+            initializePWA();
+        });
+        
+        // Password strength checker
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            const strengthBar = document.getElementById('regPasswordStrength');
+            const requirements = {
+                length: document.getElementById('lengthReq'),
+                upper: document.getElementById('upperReq'),
+                lower: document.getElementById('lowerReq'),
+                number: document.getElementById('numberReq')
+            };
+            
+            // Reset requirements
+            Object.values(requirements).forEach(req => {
+                req.className = 'requirement-not-met';
+            });
+            
+            // Check password length
+            if (password.length >= 8) {
+                strength += 25;
+                requirements.length.className = 'requirement-met';
+            }
+            
+            // Check for uppercase letters
+            if (/[A-Z]/.test(password)) {
+                strength += 25;
+                requirements.upper.className = 'requirement-met';
+            }
+            
+            // Check for lowercase letters
+            if (/[a-z]/.test(password)) {
+                strength += 25;
+                requirements.lower.className = 'requirement-met';
+            }
+            
+            // Check for numbers
+            if (/[0-9]/.test(password)) {
+                strength += 25;
+                requirements.number.className = 'requirement-met';
+            }
+            
+            // Update strength bar
+            strengthBar.style.width = strength + '%';
+            
+            // Update strength bar color
+            if (strength < 50) {
+                strengthBar.className = 'password-strength-bar strength-weak';
+            } else if (strength < 75) {
+                strengthBar.className = 'password-strength-bar strength-medium';
+            } else {
+                strengthBar.className = 'password-strength-bar strength-strong';
+            }
+        }
+        
+        // Password match checker
+        function checkPasswordMatch(password, confirmPassword) {
+            const matchIndicator = document.getElementById('passwordMatch');
+            
+            if (password === '' && confirmPassword === '') {
+                matchIndicator.textContent = '';
+                matchIndicator.className = 'password-requirements';
+            } else if (password === confirmPassword) {
+                matchIndicator.textContent = 'Passwords match';
+                matchIndicator.className = 'password-requirements requirement-met';
+            } else {
+                matchIndicator.textContent = 'Passwords do not match';
+                matchIndicator.className = 'password-requirements requirement-not-met';
+            }
+        }
+        
+        // Load premium tips history
+        function loadPremiumTipsHistory() {
+            const historyContainer = document.getElementById('premium-tips-history');
+            
+            // Sample data - in a real app, this would come from an API
+            const premiumTips = [
+                { date: '2023-10-15', match: 'Manchester United - Liverpool', tip: '1', odd: '2.50', result: '2-1' },
+                { date: '2023-10-14', match: 'Arsenal - Chelsea', tip: 'X', odd: '3.20', result: '2-2' },
+                { date: '2023-10-13', match: 'Barcelona - Real Madrid', tip: '2', odd: '2.80', result: '1-3' },
+                { date: '2023-10-12', match: 'Bayern Munich - Dortmund', tip: '1', odd: '1.80', result: '4-2' },
+                { date: '2023-10-11', match: 'PSG - Marseille', tip: '1', odd: '1.65', result: '3-1' }
+            ];
+            
+            let html = '';
+            premiumTips.forEach(tip => {
+                html += `
+                    <tr>
+                        <td>${tip.date}</td>
+                        <td>${tip.match}</td>
+                        <td>${tip.tip}</td>
+                        <td>${tip.odd}</td>
+                        <td>${tip.result}</td>
+                    </tr>
+                `;
+            });
+            
+            historyContainer.innerHTML = html;
+        }
+        
+        // Load VIP correct score for today
+        function loadVipCorrectToday() {
+            const todayContainer = document.getElementById('vip-correct-today');
+            
+            // Sample data
+            const vipCorrectToday = [
+                { match: 'Manchester City - Brighton', score: '3-1', odd: '12.00', result: '?', status: 'pending' },
+                { match: 'Newcastle - Crystal Palace', score: '2-0', odd: '8.50', result: '?', status: 'pending' }
+            ];
+            
+            let html = '';
+            vipCorrectToday.forEach(match => {
+                html += `
+                    <tr>
+                        <td>${match.match}</td>
+                        <td>${match.score}</td>
+                        <td>${match.odd}</td>
+                        <td>${match.result}</td>
+                        <td><span class="status-badge status-${match.status}">${match.status}</span></td>
+                    </tr>
+                `;
+            });
+            
+            todayContainer.innerHTML = html;
+        }
+        
+        // Load VIP correct score history
+        function loadVipCorrectHistory() {
+            const historyContainer = document.getElementById('vip-correct-history');
+            
+            // Sample data
+            const vipCorrectHistory = [
+                { date: '2023-10-15', match: 'Leicester - Nottingham', score: '2-0', odd: '9.00', result: '2-0' },
+                { date: '2023-10-14', match: 'Tottenham - Fulham', score: '2-1', odd: '8.50', result: '2-1' },
+                { date: '2023-10-13', match: 'West Ham - Everton', score: '1-0', odd: '7.50', result: '1-0' },
+                { date: '2023-10-12', match: 'Aston Villa - Wolves', score: '1-1', odd: '6.50', result: '1-1' }
+            ];
+            
+            let html = '';
+            vipCorrectHistory.forEach(match => {
+                html += `
+                    <tr>
+                        <td>${match.date}</td>
+                        <td>${match.match}</td>
+                        <td>${match.score}</td>
+                        <td>${match.odd}</td>
+                        <td>${match.result}</td>
+                    </tr>
+                `;
+            });
+            
+            historyContainer.innerHTML = html;
+        }
+        
+        // Load combo ticket for today
+        function loadComboTicketToday() {
+            const todayContainer = document.getElementById('combo-ticket-today');
+            
+            // Sample data
+            const comboToday = {
+                matches: [
+                    { match: 'Manchester United - Liverpool', tip: '1', odd: '2.50' },
+                    { match: 'Arsenal - Chelsea', tip: 'X', odd: '3.20' },
+                    { match: 'Barcelona - Real Madrid', tip: '2', odd: '2.80' }
+                ],
+                totalOdd: '22.40',
+                result: '?',
+                status: 'pending'
+            };
+            
+            let html = '<div class="combo-matches-list">';
+            comboToday.matches.forEach(match => {
+                html += `
+                    <div class="combo-match-item">
+                        <strong>${match.match}</strong>: ${match.tip} (${match.odd})
+                    </div>
+                `;
+            });
+            html += '</div>';
+            html += `<p><strong>Total Odd:</strong> ${comboToday.totalOdd}</p>`;
+            html += `<p><strong>Result:</strong> ${comboToday.result}</p>`;
+            html += `<p><span class="status-badge status-${comboToday.status}">${comboToday.status}</span></p>`;
+            
+            todayContainer.innerHTML = html;
+        }
+        
+        // Load combo ticket history
+        function loadComboTicketHistory() {
+            const historyContainer = document.getElementById('combo-ticket-history');
+            
+            // Sample data
+            const comboHistory = [
+                { 
+                    date: '2023-10-15', 
+                    matches: '3 matches', 
+                    odd: '18.50', 
+                    result: 'Won' 
+                },
+                { 
+                    date: '2023-10-14', 
+                    matches: '4 matches', 
+                    odd: '24.30', 
+                    result: 'Lost' 
+                },
+                { 
+                    date: '2023-10-13', 
+                    matches: '3 matches', 
+                    odd: '15.80', 
+                    result: 'Won' 
+                },
+                { 
+                    date: '2023-10-12', 
+                    matches: '5 matches', 
+                    odd: '32.10', 
+                    result: 'Won' 
+                }
+            ];
+            
+            let html = '';
+            comboHistory.forEach(ticket => {
+                html += `
+                    <tr>
+                        <td>${ticket.date}</td>
+                        <td>${ticket.matches}</td>
+                        <td>${ticket.odd}</td>
+                        <td><span class="match-result ${ticket.result.toLowerCase()}">${ticket.result}</span></td>
+                    </tr>
+                `;
+            });
+            
+            historyContainer.innerHTML = html;
+        }
+        
+        // Admin functions
+        function loadAdminPremiumTips() {
+            const container = document.getElementById('admin-premium-tips');
+            
+            // Sample data
+            const premiumTips = [
+                { id: 1, date: '2023-10-15', match: 'Manchester United - Liverpool', tip: '1', odd: '2.50', result: '2-1' },
+                { id: 2, date: '2023-10-14', match: 'Arsenal - Chelsea', tip: 'X', odd: '3.20', result: '2-2' },
+                { id: 3, date: '2023-10-13', match: 'Barcelona - Real Madrid', tip: '2', odd: '2.80', result: '1-3' }
+            ];
+            
+            let html = '';
+            premiumTips.forEach(tip => {
+                html += `
+                    <tr>
+                        <td><input type="text" value="${tip.date}"></td>
+                        <td><input type="text" value="${tip.match}"></td>
+                        <td><input type="text" value="${tip.tip}"></td>
+                        <td><input type="text" value="${tip.odd}"></td>
+                        <td><input type="text" value="${tip.result}"></td>
+                        <td>
+                            <button class="admin-btn">Save</button>
+                            <button class="admin-btn admin-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        function loadAdminVipCorrectTips() {
+            const container = document.getElementById('admin-vip-correct-tips');
+            
+            // Sample data
+            const vipCorrectTips = [
+                { id: 1, date: '2023-10-15', match: 'Manchester City - Brighton', score: '3-1', odd: '12.00', result: '?' },
+                { id: 2, date: '2023-10-14', match: 'Newcastle - Crystal Palace', score: '2-0', odd: '8.50', result: '?' }
+            ];
+            
+            let html = '';
+            vipCorrectTips.forEach(tip => {
+                html += `
+                    <tr>
+                        <td><input type="text" value="${tip.date}"></td>
+                        <td><input type="text" value="${tip.match}"></td>
+                        <td><input type="text" value="${tip.score}"></td>
+                        <td><input type="text" value="${tip.odd}"></td>
+                        <td><input type="text" value="${tip.result}"></td>
+                        <td>
+                            <button class="admin-btn">Save</button>
+                            <button class="admin-btn admin-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        function loadAdminComboTickets() {
+            const container = document.getElementById('admin-combo-tickets');
+            
+            // Sample data
+            const comboTickets = [
+                { id: 1, date: '2023-10-15', matches: '3 matches', odd: '22.40', result: '?' },
+                { id: 2, date: '2023-10-14', matches: '4 matches', odd: '35.20', result: 'Won' }
+            ];
+            
+            let html = '';
+            comboTickets.forEach(ticket => {
+                html += `
+                    <tr>
+                        <td><input type="text" value="${ticket.date}"></td>
+                        <td><textarea>${ticket.matches}</textarea></td>
+                        <td><input type="text" value="${ticket.odd}"></td>
+                        <td><input type="text" value="${ticket.result}"></td>
+                        <td>
+                            <button class="admin-btn">Save</button>
+                            <button class="admin-btn admin-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        function loadAdminUsers() {
+            const container = document.getElementById('admin-users-list');
+            
+            // Sample data
+            const users = [
+                { username: 'john_doe', email: 'john@example.com', subscription: 'VIP Monthly', status: 'Active', joinDate: '2023-09-15' },
+                { username: 'jane_smith', email: 'jane@example.com', subscription: 'Combo Weekly', status: 'Active', joinDate: '2023-10-01' },
+                { username: 'mike_wilson', email: 'mike@example.com', subscription: 'VIP Daily', status: 'Expired', joinDate: '2023-08-20' }
+            ];
+            
+            let html = '';
+            users.forEach(user => {
+                html += `
+                    <tr>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                        <td>${user.subscription}</td>
+                        <td><span class="status-badge status-${user.status.toLowerCase()}">${user.status}</span></td>
+                        <td>${user.joinDate}</td>
+                        <td>
+                            <button class="admin-btn">Edit</button>
+                            <button class="admin-btn admin-btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // PWA functionality
+        function initializePWA() {
+            let deferredPrompt;
+            const installButton = document.getElementById('installButton');
+            const installModal = new bootstrap.Modal(document.getElementById('installModal'));
+            
+            // Listen for the beforeinstallprompt event
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Prevent the mini-infobar from appearing on mobile
+                e.preventDefault();
+                // Stash the event so it can be triggered later
+                deferredPrompt = e;
+                // Show the install button
+                installButton.classList.remove('hidden');
+                
+                // Show install modal after a delay
+                setTimeout(() => {
+                    installModal.show();
+                }, 5000);
+            });
+            
+            // Install button click handler
+            installButton.addEventListener('click', () => {
+                // Show the install prompt
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    // Wait for the user to respond to the prompt
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the install prompt');
+                        } else {
+                            console.log('User dismissed the install prompt');
+                        }
+                        // Clear the saved prompt since it can't be used again
+                        deferredPrompt = null;
+                        // Hide the install button
+                        installButton.classList.add('hidden');
+                    });
+                }
+            });
+            
+            // Install app button in modal
+            document.getElementById('installApp').addEventListener('click', () => {
+                installModal.hide();
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        deferredPrompt = null;
+                        installButton.classList.add('hidden');
+                    });
+                }
+            });
+            
+            // Listen for app installed event
+            window.addEventListener('appinstalled', () => {
+                // Hide the install button
+                installButton.classList.add('hidden');
+                // Clear the deferredPrompt so it can be garbage collected
+                deferredPrompt = null;
+                console.log('PWA was installed');
+            });
+        }
+    </script>
+</body>
+</html>
